@@ -15,9 +15,9 @@ node.js 来执行
 2. 配置Variables.less文件达到定制外观的效果（变量文件）
 
 ##变量
-1. less通过@来定义变量；如：@color:#ccc;
-2. 不仅可以用变量来管理属性值，也可以用在选择器名称，属性名，URL以及@import语句中；
-###（1）选择器变量
+ less通过@来定义变量；如：@color:#ccc;
+ 不仅可以用变量来管理属性值，也可以用在选择器名称，属性名，URL以及@import语句中；
+###1.选择器变量
 ####less:
 //定义了一个选择器变量
  @mySelector:myName;
@@ -32,7 +32,7 @@ node.js 来执行
     height: 100px;
     color: red;
   }
-### (2)URL变量
+###2.URL变量
 ####less:
   @img:'image';
 //应用
@@ -47,7 +47,7 @@ node.js 来执行
     height: 100px;
     background: url('image/1.jpg') no-repeat;
   }
-### (3)属性变量
+###3.属性变量
 ####less:
   @property:color;
   .mydiv{
