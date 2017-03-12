@@ -1,0 +1,127 @@
+//引入文件
+@import 'test';//引入 .less 文件, .less 后缀可带可不带
+@import 'test1.css';//引入css文件，需要加入.css后缀
+//选择器变量
+@mySelector:myName;
+.@{mySelector}{
+  width: 100px;
+  height:100px;
+  color:red;
+
+}
+//url
+@img:'image';
+//应用
+.myimg{
+  width:100px;
+  height: 100px;
+  background: url('@{img}/1.jpg') no-repeat;
+
+}
+//属性
+@property:color;
+.mydiv{
+  width: 100px;
+  height:100px;
+  @{property}:#eee ;
+}
+//混合——无参
+//定义一个color类
+.color{
+  color:#eee;
+  background-color:#f00;
+}
+//应用
+.myBox{
+  width:100px;
+  height:100px;
+  .color;
+}
+//混合--有参
+//定义一个color类
+.color (@color:#eee){
+  color:@color;
+  background-color:#f00;
+}
+//应用
+.myBox1{
+  width:100px;
+  height:100px;
+  .color();//不传参时，即用默认的参数；
+  .color(#0f0);//传入参数的情况
+}
+//媒体查询
+.screencolor{
+  @media screen {
+    color:blue;
+    @media (min-width: 768px) {
+      color: red;
+    }
+  }
+  @media tv {
+    color: black;
+  }
+}
+//匹配模式
+.mixin(dark,@color) {
+  color: darken(@color, 15%);
+}
+.mixin(light,@color) {
+  color: lighten(@color, 15%);
+}
+//下面代码的作用是，不管匹配上面哪种模式，下面样式都会加进去。注意：第一个参数一定是@_，后面的每个参数都要加上
+.mixin(@_,@color) {
+  width:100px;
+  height:100px;
+}
+.line {
+  .mixin(dark,#FF0000);
+}
+//嵌套
+/*<ul>
+    <li><a href="#"></a></li>
+</ul>*/
+ul{
+  width: 100px;
+  li{
+    background:green;
+    a{
+      color: red;
+      &:hover{
+        color: blue;
+      }
+    }
+  }
+}
+//运算
+@base: 5%;
+@base-color:#eee;
+@filler: @base * 2;
+@other: @base + @filler;
+.myBox3{
+  color: #888 / 4;
+  background-color: @base-color + #111;
+  height: 100% / 2 + @filler;
+}
+//argument
+.border(@w:10px,@c:red,@xx:solid) {
+  border:@arguments;
+}
+div{
+  .border(20px);
+}
+//避免编译
+.class {
+  filter: ~"ms:alwaysHasItsOwnSyntax.For.Stuff()";
+}
+
+//扩展
+nav ul{
+  &:extend(.inline);
+  background:blue;
+}
+.inline{
+  color:red;
+}
+/*会编译为css注释*/
+//仅仅less有效

@@ -1,0 +1,92 @@
+@import 'test1.css';
+.btn {
+  width: 50px;
+  height: 50px;
+  color: green;
+}
+.myName {
+  width: 100px;
+  height: 100px;
+  color: red;
+}
+.myimg {
+  width: 100px;
+  height: 100px;
+  background: url('image/1.jpg') no-repeat;
+}
+.mydiv {
+  width: 100px;
+  height: 100px;
+  color: #eee ;
+}
+.color {
+  color: #eee;
+  background-color: #f00;
+}
+.myBox {
+  width: 100px;
+  height: 100px;
+  color: #eee;
+  background-color: #f00;
+}
+.myBox1 {
+  width: 100px;
+  height: 100px;
+  color: #eee;
+  color: #0f0;
+  background-color: #f00;
+}
+@media screen {
+  .screencolor {
+    color: blue;
+  }
+}
+@media screen and (min-width: 768px) {
+  .screencolor {
+    color: red;
+  }
+}
+@media tv {
+  .screencolor {
+    color: black;
+  }
+}
+.line {
+  color: #b30000;
+  width: 100px;
+  height: 100px;
+}
+/*<ul>
+    <li><a href="#"></a></li>
+</ul>*/
+ul {
+  width: 100px;
+}
+ul li {
+  background: green;
+}
+ul li a {
+  color: red;
+}
+ul li a:hover {
+  color: blue;
+}
+.myBox3 {
+  color: #222222;
+  background-color: #ffffff;
+  height: 60%;
+}
+div {
+  border: 20px red solid;
+}
+.class {
+  filter: ms:alwaysHasItsOwnSyntax.For.Stuff();
+}
+nav ul {
+  background: blue;
+}
+.inline,
+nav ul {
+  color: red;
+}
+/*会编译为css注释*/
