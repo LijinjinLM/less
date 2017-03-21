@@ -31,9 +31,13 @@ node.js 来执行
 //定义了一个选择器变量
 
  @mySelector:myName;
-   \.@{mySelector}{
+ 
+   .@{mySelector}{
+   
    width: 100px;
+   
    height:100px;
+   
    color:red;
  }
  
