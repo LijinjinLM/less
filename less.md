@@ -19,13 +19,17 @@ node.js 来执行
 ## bootstrap定制
 
 1. bootstrap.less可以删除不需要的组件
+
 2. 配置Variables.less文件达到定制外观的效果（变量文件）
 
 ## 变量
+
  less通过@来定义变量；如：@color:#ccc;
  
  不仅可以用变量来管理属性值，也可以用在选择器名称，属性名，URL以及@import语句中；
+ 
 ### 1.选择器变量
+
 #### less:
 
 //定义了一个选择器变量
@@ -39,14 +43,19 @@ node.js 来执行
    height:100px;
    
    color:red;
+ 
  }
  
 #### 编译后的css
 
   .myName {
+  
     width: 100px;
+    
     height: 100px;
+    
     color: red;
+    
   }
   
 ### 2.URL变量
@@ -54,98 +63,161 @@ node.js 来执行
 #### less:
 
   @img:'image';
+  
 //应用
+
  .myimg{
       width:100px;
+      
       height: 100px;
+      
       background: url('@{img}/1.jpg') no-repeat;
+      
  }
 #### 编译后的css
 
   .myimg {
+  
     width: 100px;
+    
     height: 100px;
+    
     background: url('image/1.jpg') no-repeat;
+    
   }
 ### 3.属性变量
 
 #### less:
+
   @property:color;
+  
   .mydiv{
     width: 100px;
+    
     height:100px;
+    
     @{property}:#eee ;
+    
   }
 #### 编译后的css
 
   .mydiv {
+  
     width: 100px;
+    
     height: 100px;
+    
     color: #eee ;
+    
   }
   
 ## 混合(mixins)
 
-   类似于函数。混合可以将一个定义好的class A轻松的引入到另一个class B中，从而简单实现class B继承 class A中的所有属性。我们还可以带参数地调用，就像
-   使用函数一样。
+   类似于函数。混合可以将一个定义好的class A轻松的引入到另一个class B中，从而简单实现class B继承 class A中的所有属性。
+   
+   我们还可以带参数地调用，就像 使用函数一样。
+   
 ### (1)无参
+
 #### less:
 
   //定义一个color类
+  
   .color{
     color:#eee;
+    
     background-color:#f00;
+    
   }
   //应用
   .myBox{
+  
     width:100px;
+    
     height:100px;
+    
     .color;
+    
   }
 #### 编译后的css
 
   .color {
+  
     color: #eee;
+    
     background-color: #f00;
+    
   }
   .myBox {
+ 
     width: 100px;
+    
     height: 100px;
+    
     color: #eee;
+    
     background-color: #f00;
+    
   }
+  
 ### (2) 有参
+
 #### less:
+
   //定义一个color类
+  
   .color (@color:#eee){
+  
     color:@color;
+    
     background-color:#f00;
+    
   }
   //应用
+  
   .myBox1{
+  
     width:100px;
+    
     height:100px;
+    
     .color();//不传参时，即用默认的参数；
+    
     .color(#0f0);//传入参数的情况
+    
   }
 #### 编译后的css
+
   .myBox1 {
+  
     width: 100px;
+    
     height: 100px;
+    
     color: #eee;
+    
     color: #0f0;
+    
     background-color: #f00;
+    
   }
    有时候我们会看到如下的用法
+   
   .color () {
       color:#eee;
   }
+  
    当你希望.color()不出现在css里，且有不能引用其它类的时候，就可以这样子写。
+   
 ### (3)在媒体查询里的嵌套写法稍有区别
+
 #### less:
+
   //媒体查询
   .screencolor{
+  
     @media screen {
+    
       color:blue;
       @media (min-width: 768px) {
         color: red;
