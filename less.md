@@ -229,28 +229,45 @@ node.js 来执行
   }
 #### 编译后的css
   @media screen {
+  
     .screencolor {
+    
       color: blue;
+      
     }
+    
   }
+  
   @media screen and (min-width: 768px) {
+  
     .screencolor {
+    
       color: red;
+      
     }
+    
   }
   @media tv {
+  
     .screencolor {
+    
       color: black;
+      
     }
+    
   }
 ## 匹配模式
+
 匹配模式的写法类似于混合。它的作用类似于if语句。
+
 #### less:
+
   .mixin(dark,@color) {
   
     color: darken(@color, 15%);
     
   }
+  
   .mixin(light,@color) {
   
     color: lighten(@color, 15%);
